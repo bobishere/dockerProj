@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java
 VOLUME /tmp
-ADD lidong-spring-boot-demo-1.0-SNAPSHOT.jar app.jar
-RUN sh -c 'touch /app.jar'
+ADD demo-0.0.1-SNAPSHOT.jar
+RUN bash -c 'touch /demo.jar'
 ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /demo.jar" ]
